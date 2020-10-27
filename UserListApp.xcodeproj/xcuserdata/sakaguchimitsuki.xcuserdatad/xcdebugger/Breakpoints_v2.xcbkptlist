@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "9D3AB25A-CD7B-468E-93BD-892ECA10247C"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "67B247BB-1D99-49AF-BFB0-77DDB19BC0E9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UserLostApp/SyosaiViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7417B928-5033-4B21-9165-0AE7661342D9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UserLostApp/TableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "tableView(_:commit:forRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E1C906C0-9686-4DE6-860C-E9F118527252"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UserLostApp/SyosaiViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "SyosaiViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "E1C906C0-9686-4DE6-860C-E9F118527252 - 72e90274fc0afb67"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UserLostApp.SyosaiViewController.Yakusyoku.getter : Swift.String"
+                  moduleName = "UserLostApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sakaguchimitsuki/Desktop/%E6%BC%94%E7%BF%92/%E6%BC%94%E7%BF%92%E8%AA%B2%E9%A1%8C/8.1_UserListApp/UserLostApp/SyosaiViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "139">
+               </Location>
+               <Location
+                  uuid = "E1C906C0-9686-4DE6-860C-E9F118527252 - 7311d859ce58db4f"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UserLostApp.SyosaiViewController.Yakusyoku.setter : Swift.String"
+                  moduleName = "UserLostApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sakaguchimitsuki/Desktop/%E6%BC%94%E7%BF%92/%E6%BC%94%E7%BF%92%E8%AA%B2%E9%A1%8C/8.1_UserListApp/UserLostApp/SyosaiViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "150">
+               </Location>
+               <Location
+                  uuid = "E1C906C0-9686-4DE6-860C-E9F118527252 - 80e1c6aac3e91361"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UserLostApp.SyosaiViewController.Yakusyoku.modify : Swift.String"
+                  moduleName = "UserLostApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sakaguchimitsuki/Desktop/%E6%BC%94%E7%BF%92/%E6%BC%94%E7%BF%92%E8%AA%B2%E9%A1%8C/8.1_UserListApp/UserLostApp/SyosaiViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  uuid = "E1C906C0-9686-4DE6-860C-E9F118527252 - 8a7baeb1d1e52417"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UserLostApp.SyosaiViewController.Yakusyoku.modify : Swift.String with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "UserLostApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sakaguchimitsuki/Desktop/%E6%BC%94%E7%BF%92/%E6%BC%94%E7%BF%92%E8%AA%B2%E9%A1%8C/8.1_UserListApp/UserLostApp/SyosaiViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  uuid = "E1C906C0-9686-4DE6-860C-E9F118527252 - e6928aea9c43c1c1"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UserLostApp.SyosaiViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; UserLostApp.SyosaiViewController"
+                  moduleName = "UserLostApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sakaguchimitsuki/Desktop/%E6%BC%94%E7%BF%92/%E6%BC%94%E7%BF%92%E8%AA%B2%E9%A1%8C/8.1_UserListApp/UserLostApp/SyosaiViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "E1C906C0-9686-4DE6-860C-E9F118527252 - 955d50cb088c8df3"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "UserLostApp.SyosaiViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;UserLostApp.SyosaiViewController&gt;"
+                  moduleName = "UserLostApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sakaguchimitsuki/Desktop/%E6%BC%94%E7%BF%92/%E6%BC%94%E7%BF%92%E8%AA%B2%E9%A1%8C/8.1_UserListApp/UserLostApp/SyosaiViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "122">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
