@@ -34,11 +34,6 @@ class InputViewController: UIViewController {
 
         //追加
         TableViewController.users += [(title,name,department,phone)]
-        
-        //追加した行データの保存
-        let defaults = UserDefaults.standard
-        
-        
     }
 
     
