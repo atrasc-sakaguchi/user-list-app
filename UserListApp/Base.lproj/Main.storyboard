@@ -86,104 +86,95 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tl6-7S-XWj">
-                                <rect key="frame" x="100" y="431" width="264" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="BusyoInoutText:" destination="8MV-7c-R6X" eventType="editingDidEnd" id="axJ-oD-hBI"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AsV-xq-mg0">
-                                <rect key="frame" x="100" y="476" width="264" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="TelInputText:" destination="8MV-7c-R6X" eventType="editingDidEnd" id="yTv-Tr-yUL"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpu-fv-dQd">
-                                <rect key="frame" x="182.5" y="517" width="49" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="保存"/>
-                                <connections>
-                                    <action selector="SaveButton:" destination="8MV-7c-R6X" eventType="touchUpInside" id="RCV-U9-LsQ"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="役職" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbI-8g-0Ye">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="役職" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IhY-2R-CYr">
                                 <rect key="frame" x="44.5" y="348" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0fX-s5-dad">
-                                <rect key="frame" x="100" y="386" width="264" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="NameInputText:" destination="8MV-7c-R6X" eventType="editingDidEnd" id="6iY-KO-sv2"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nfc-KG-Jn4">
-                                <rect key="frame" x="100" y="341.5" width="264" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="YakusyokuText:" destination="8MV-7c-R6X" eventType="editingDidEnd" id="BoP-4C-Slx"/>
-                                </connections>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="氏名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0F-qw-03N">
-                                <rect key="frame" x="44.5" y="392.5" width="35" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="部署" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLs-0a-b08">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="部署" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kk4-nc-gXo">
                                 <rect key="frame" x="44.5" y="437.5" width="35" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="連絡先" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMt-f1-WrH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="氏名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K4b-g6-eew">
+                                <rect key="frame" x="44.5" y="392.5" width="35" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="連絡先" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMk-ZN-weD">
                                 <rect key="frame" x="36" y="482.5" width="52" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kUI-Dz-4eu">
+                                <rect key="frame" x="109.5" y="341.5" width="284.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YkF-Gx-ybZ">
+                                <rect key="frame" x="109.5" y="386" width="284.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bBZ-Gh-kXa">
+                                <rect key="frame" x="109.5" y="431" width="284.5" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F1Z-9T-B4U">
+                                <rect key="frame" x="108" y="476" width="286" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pwb-JP-dne">
+                                <rect key="frame" x="191.5" y="522.5" width="31" height="30"/>
+                                <state key="normal" title="保存"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="8MV-7c-R6X" eventType="touchUpInside" id="5pv-9r-Rdd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Qfa-sx-RwB" firstAttribute="trailing" secondItem="0fX-s5-dad" secondAttribute="trailing" constant="50" id="4vo-sJ-2Iy"/>
-                            <constraint firstItem="AsV-xq-mg0" firstAttribute="leading" secondItem="Qfa-sx-RwB" secondAttribute="leading" constant="100" id="9Eg-ug-o9j"/>
-                            <constraint firstItem="Tl6-7S-XWj" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" id="Dy1-Il-ScP"/>
-                            <constraint firstItem="MbI-8g-0Ye" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="0.8" id="Flv-49-hhv"/>
-                            <constraint firstItem="n0F-qw-03N" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="0.9" id="I5f-kz-opb"/>
-                            <constraint firstItem="MbI-8g-0Ye" firstAttribute="centerX" secondItem="jAU-5d-eUx" secondAttribute="centerX" multiplier="0.3" id="Jkf-g8-kC5"/>
-                            <constraint firstItem="n0F-qw-03N" firstAttribute="centerX" secondItem="jAU-5d-eUx" secondAttribute="centerX" multiplier="0.3" id="Qat-8y-BuF"/>
-                            <constraint firstItem="Qfa-sx-RwB" firstAttribute="trailing" secondItem="Tl6-7S-XWj" secondAttribute="trailing" constant="50" id="RXc-KM-h3P"/>
-                            <constraint firstItem="AsV-xq-mg0" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="1.1" id="TS7-kY-d5j"/>
-                            <constraint firstItem="EMt-f1-WrH" firstAttribute="centerX" secondItem="jAU-5d-eUx" secondAttribute="centerX" multiplier="0.3" id="ZaO-TZ-pRh"/>
-                            <constraint firstItem="Qfa-sx-RwB" firstAttribute="trailing" secondItem="nfc-KG-Jn4" secondAttribute="trailing" constant="50" id="ZvZ-b6-BMd"/>
-                            <constraint firstItem="0fX-s5-dad" firstAttribute="leading" secondItem="Qfa-sx-RwB" secondAttribute="leading" constant="100" id="bB1-Hb-oax"/>
-                            <constraint firstItem="0fX-s5-dad" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="0.9" id="g6s-nl-dA5"/>
-                            <constraint firstItem="vLs-0a-b08" firstAttribute="centerX" secondItem="jAU-5d-eUx" secondAttribute="centerX" multiplier="0.3" id="i0E-ke-uey"/>
-                            <constraint firstItem="nfc-KG-Jn4" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="0.8" id="jDU-NT-G4b"/>
-                            <constraint firstItem="nfc-KG-Jn4" firstAttribute="leading" secondItem="Qfa-sx-RwB" secondAttribute="leading" constant="100" id="jcl-8d-eko"/>
-                            <constraint firstItem="lpu-fv-dQd" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="1.2" id="lWe-bf-8U8"/>
-                            <constraint firstItem="lpu-fv-dQd" firstAttribute="centerX" secondItem="jAU-5d-eUx" secondAttribute="centerX" id="o9r-nt-caJ"/>
-                            <constraint firstItem="Tl6-7S-XWj" firstAttribute="leading" secondItem="Qfa-sx-RwB" secondAttribute="leading" constant="100" id="oEk-ug-oXQ"/>
-                            <constraint firstItem="vLs-0a-b08" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" id="qnW-iV-KaS"/>
-                            <constraint firstItem="EMt-f1-WrH" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="1.1" id="rBd-Y1-nQm"/>
-                            <constraint firstItem="Qfa-sx-RwB" firstAttribute="trailing" secondItem="AsV-xq-mg0" secondAttribute="trailing" constant="50" id="rM6-cZ-wsN"/>
+                            <constraint firstItem="pwb-JP-dne" firstAttribute="centerX" secondItem="jAU-5d-eUx" secondAttribute="centerX" id="3kj-ah-70I"/>
+                            <constraint firstItem="YkF-Gx-ybZ" firstAttribute="leading" secondItem="K4b-g6-eew" secondAttribute="trailing" constant="30" id="4sa-Ut-tDx"/>
+                            <constraint firstItem="K4b-g6-eew" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="0.9" id="5ba-1l-cBj"/>
+                            <constraint firstItem="bBZ-Gh-kXa" firstAttribute="leading" secondItem="kk4-nc-gXo" secondAttribute="trailing" constant="30" id="674-9q-2fd"/>
+                            <constraint firstItem="K4b-g6-eew" firstAttribute="centerX" secondItem="jAU-5d-eUx" secondAttribute="centerX" multiplier="0.3" id="CgC-We-Ksd"/>
+                            <constraint firstItem="Qfa-sx-RwB" firstAttribute="trailing" secondItem="F1Z-9T-B4U" secondAttribute="trailing" constant="20" id="Kci-Rm-cXx"/>
+                            <constraint firstItem="IhY-2R-CYr" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="0.8" id="LVF-Yq-4mO"/>
+                            <constraint firstItem="bBZ-Gh-kXa" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" id="MXG-G9-a3O"/>
+                            <constraint firstItem="F1Z-9T-B4U" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="1.1" id="R0A-5W-HTo"/>
+                            <constraint firstItem="VMk-ZN-weD" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="1.1" id="R17-c0-kQt"/>
+                            <constraint firstItem="kk4-nc-gXo" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" id="RQL-Zu-FhW"/>
+                            <constraint firstItem="pwb-JP-dne" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="1.2" id="TWE-go-ccg"/>
+                            <constraint firstItem="IhY-2R-CYr" firstAttribute="centerX" secondItem="jAU-5d-eUx" secondAttribute="centerX" multiplier="0.3" id="VI4-9g-Ziq"/>
+                            <constraint firstItem="F1Z-9T-B4U" firstAttribute="leading" secondItem="VMk-ZN-weD" secondAttribute="trailing" constant="20" id="W8O-lz-0eA"/>
+                            <constraint firstItem="Qfa-sx-RwB" firstAttribute="trailing" secondItem="YkF-Gx-ybZ" secondAttribute="trailing" constant="20" id="axN-62-PBt"/>
+                            <constraint firstItem="Qfa-sx-RwB" firstAttribute="trailing" secondItem="kUI-Dz-4eu" secondAttribute="trailing" constant="20" id="dkY-8Q-htK"/>
+                            <constraint firstItem="Qfa-sx-RwB" firstAttribute="trailing" secondItem="bBZ-Gh-kXa" secondAttribute="trailing" constant="20" id="gha-aE-ces"/>
+                            <constraint firstItem="kUI-Dz-4eu" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="0.8" id="h5Z-xy-PXA"/>
+                            <constraint firstItem="YkF-Gx-ybZ" firstAttribute="centerY" secondItem="jAU-5d-eUx" secondAttribute="centerY" multiplier="0.9" id="jJ8-Ek-Q4a"/>
+                            <constraint firstItem="kUI-Dz-4eu" firstAttribute="leading" secondItem="IhY-2R-CYr" secondAttribute="trailing" constant="30" id="lod-c0-Zca"/>
+                            <constraint firstItem="VMk-ZN-weD" firstAttribute="centerX" secondItem="jAU-5d-eUx" secondAttribute="centerX" multiplier="0.3" id="ltz-C2-Mws"/>
+                            <constraint firstItem="kk4-nc-gXo" firstAttribute="centerX" secondItem="jAU-5d-eUx" secondAttribute="centerX" multiplier="0.3" id="oQl-k8-3N3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Qfa-sx-RwB"/>
                     </view>
                     <navigationItem key="navigationItem" id="HSJ-WE-g8y"/>
                     <connections>
-                        <outlet property="BusyoLabel" destination="vLs-0a-b08" id="rYT-kB-Mqa"/>
-                        <outlet property="NameLabel" destination="n0F-qw-03N" id="AnN-g3-8fT"/>
-                        <outlet property="TellLabel" destination="EMt-f1-WrH" id="9C9-wF-rrJ"/>
-                        <outlet property="YakusyokuLabel" destination="MbI-8g-0Ye" id="9Ou-k0-hK7"/>
+                        <outlet property="busyoInputText" destination="bBZ-Gh-kXa" id="MAW-ti-Txc"/>
+                        <outlet property="busyoLabel" destination="kk4-nc-gXo" id="M5X-DO-Ekj"/>
+                        <outlet property="nameInputText" destination="YkF-Gx-ybZ" id="g0D-VC-u65"/>
+                        <outlet property="nameLabel" destination="K4b-g6-eew" id="jbW-2I-jcm"/>
+                        <outlet property="tellInputText" destination="F1Z-9T-B4U" id="OnB-e7-H6T"/>
+                        <outlet property="tellLabel" destination="VMk-ZN-weD" id="Deg-im-8yL"/>
+                        <outlet property="yakusyokuInputText" destination="kUI-Dz-4eu" id="pOZ-bI-fRc"/>
+                        <outlet property="yakusyokuLabel" destination="IhY-2R-CYr" id="Gkk-CS-isD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RF6-iS-VTa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
