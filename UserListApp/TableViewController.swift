@@ -12,28 +12,59 @@ class TableViewController: UITableViewController {
     
     
     //テーブルに表示するデータ一覧
-    static var users:[(name: String, department: String, title: String, phone: String )] = [
-    ("山田　太郎","システム開発部","課長代理","090-9999-9999"),
-    ("川田　吾郎","営業部","一般","080-8888-8888"),
-    ("里田　舞","人事部","一般","070-7777-7777"),
-    ("道上　歩","人事部","部長","070-0000-0000"),
-    ("海川　泳三","総務部","係長","080-3333-3333"),
-    ("林　九郎","システム開発部","課長","080-3333-3333"),
-    ("土屋　草五郎","システム開発部","一般","090-9900-8877"),
-    ("竹下　大作","システム開発部","一般","090-4455-1133"),
-    ("木田　房枝","運用部","一般","070-2222-5533"),
-    ("砂川　黄太郎","運用部","次長","090-1212-3434"),
-    ("草加　平蔵","総務部","一般","080-1155-5511"),
-    ("水上　泉太郎","総務部","一般","090-0099-7722"),
-    ("畑山　耕史","システム開発部","本部長","090-2929-3535"),
-    ("浪江　乗太郎","システム開発部","係長代理補佐","080-8787-5454")
+    static var users:[User] = [
+        User(name: "山田　太郎", department: "システム開発部", title: "課長代理", phone: "090-9999-9999"),
+        User(name: "川田　吾郎", department: "営業部", title: "一般", phone: "080-8888-8888"),
+        User(name: "里田　舞", department: "人事部", title: "一般", phone: "070-7777-7777"),
+        User(name: "道上　歩", department: "人事部", title: "部長", phone: "070-0000-0000"),
+        User(name: "海川　泳三", department: "総務部", title: "係長", phone: "080-3333-3333"),
+        User(name: "林　九郎", department: "システム開発部", title: "一般", phone: "090-9900-8877"),
+        User(name: "土屋　草五郎", department: "システム開発部", title: "一般", phone: "090-4455-1133"),
+        User(name: "竹下　大作", department: "人事部", title: "一般", phone: "070-7777-7777"),
+        User(name: "木田　房枝", department: "運用部", title: "一般", phone: "070-2222-5533"),
+        User(name: "砂川　黄太郎", department: "運用部", title: "次長", phone: "090-1212-3434"),
+        User(name: "草加　平蔵", department: "総務部", title: "一般", phone: "080-1155-5511"),
+        User(name: "水上　泉太郎", department: "総務部", title: "一般", phone: "090-0099-7722"),
+        User(name: "畑山　耕史", department: "システム開発部", title: "本部長", phone: "090-2929-3535"),
+        User(name: "浪江　乗太郎", department: "システム開発部", title: "係長代理補佐", phone: "080-8787-5454"),
     ];
 
-    var users:[(name: String, department: String, title: String, phone: String )] = [];
-    
+    var users:[User] = [];
+     
     override func viewDidLoad() {
         super.viewDidLoad();
+
         self.users = TableViewController.users;
+        
+        //配列へ変換
+        var users2:[[String]] = [];
+        self.users.forEach { user in
+            users2.append(user.toArray());
+        }
+        //print(users2);
+        
+        //配列を保存
+        let defaults = UserDefaults.standard
+        defaults.set(users2, forKey: "users")
+
+        //userDefaultsに保存された値の取得
+        let a = defaults.array(forKey: "users") as! [[String]];
+        print(a)
+
+        //usersを空にする
+        TableViewController.users = []
+        
+        //取り出した情報を変換
+        a.forEach { userText in
+            let user = User(name: userText[0], department: userText[1], title: userText[2], phone: userText[3])
+            //tableViewへ格納
+            TableViewController.users.append(user)
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated);
+        self.tableView.reloadData();
     }
 
     // MARK: - Table view data source
@@ -62,17 +93,6 @@ class TableViewController: UITableViewController {
         secondCell.textLabel?.text = "新規登録"
         
         return secondCell
-        
-//        case 1:
-//        //情報表示用のセル設定
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-//
-//        //セルの内容を指定
-//        cell.textLabel?.text = users[indexPath.row].name
-//        cell.detailTextLabel?.text = users[indexPath.row].department
-//
-//        return cell
-        
             
         default:
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
@@ -99,14 +119,16 @@ class TableViewController: UITableViewController {
 
     //画面遷移
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //詳細表示画面のビューコントローラー取得
         guard let Syosai = segue.destination as? SyosaiViewController else {return}
+        //選択行のIndexPath取得
         guard let indexPath = tableView.indexPathForSelectedRow else {return}
  
-        //詳細表示画面に情報を表示
-        Syosai.Name = users[indexPath.row-1].name   //氏名
-        Syosai.Busyo = users[indexPath.row-1].department    //部署
-        Syosai.Yakusyoku = users[indexPath.row-1].title    //役職
-        Syosai.Renraku = users[indexPath.row-1].phone    //連絡先
+        //詳細表示画面へ行情報を渡す
+        Syosai.user = users[indexPath.row - 1];
+        //詳細表示画面へ選択行の情報を渡す
+        Syosai.indexRow = indexPath.row - 1
+
     }
         
         

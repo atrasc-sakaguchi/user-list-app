@@ -11,29 +11,42 @@ import UIKit
 class SyosaiViewController: UIViewController {
     
     @IBOutlet weak var BackButton: UINavigationItem!
-    //表示するデータ取得
-    var Yakusyoku : String = ""
-    var Name : String = ""
-    var Busyo : String = ""
-    var Renraku : String = ""
+ 
+    var user:User? = nil;
+    var indexRow:Int = 0;
 
     @IBOutlet weak var YakusyokuLabel: UILabel!
     @IBOutlet weak var ShimeiLabel: UILabel!
     @IBOutlet weak var BusyoLabel: UILabel!
     @IBOutlet weak var RenrakuLabel: UILabel!
     
+    @IBAction func EditButton(_ sender: UIButton) {
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //ラベルにユーザーの詳細情報をセット
+        YakusyokuLabel.text = user!.title;
+        ShimeiLabel.text = user!.name;
+        BusyoLabel.text = user!.department;
+        RenrakuLabel.text = user!.phone;
 
-
-        //ラベルにセット
-        YakusyokuLabel.text = Yakusyoku
-        print(Yakusyoku)
-        ShimeiLabel.text = Name
-        BusyoLabel.text = Busyo
-        RenrakuLabel.text = Renraku
     }
-
-
+    
+    //画面遷移
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //入力画面のビューコントローラを取得
+        guard let Input = segue.destination as? InputViewController else { return }
+        //タップされたボタンを取得
+        guard let button = sender as? UIButton else { return }
+        
+        //編集ボタンのtagプロパティの値(1)を遷移先ビューコントローラのプロパティに代入
+        Input.viewNum = button.tag
+        //入力画面へユーザー情報を渡す
+        Input.input = user
+        //入力画面へ編集業を渡す
+        Input.indexRow = indexRow
+}
 }

@@ -168,14 +168,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="HSJ-WE-g8y"/>
                     <connections>
-                        <outlet property="busyoInputText" destination="APQ-Uv-fgr" id="LoU-mh-qjq"/>
-                        <outlet property="busyoLabel" destination="K9q-kt-oir" id="5Id-UI-gUR"/>
-                        <outlet property="nameInputText" destination="Tek-iu-VSH" id="zFp-a3-eeC"/>
-                        <outlet property="nameLabel" destination="7D9-kU-8cy" id="9SF-sB-CDc"/>
-                        <outlet property="tellInputText" destination="X8J-j8-YEW" id="q8F-cO-v3b"/>
-                        <outlet property="tellLabel" destination="GOQ-Fq-zA9" id="CdX-UJ-OzI"/>
-                        <outlet property="yakusyokuInputText" destination="FqG-QF-gHW" id="57K-tp-KAM"/>
-                        <outlet property="yakusyokuLabel" destination="dLU-AC-2xA" id="bsE-QS-uzs"/>
+                        <outlet property="departmentInputText" destination="APQ-Uv-fgr" id="22o-Qv-kDW"/>
+                        <outlet property="departmentLabel" destination="K9q-kt-oir" id="VUY-W7-710"/>
+                        <outlet property="nameInputText" destination="Tek-iu-VSH" id="4Wz-nZ-25y"/>
+                        <outlet property="nameLabel" destination="7D9-kU-8cy" id="7GG-AQ-pO0"/>
+                        <outlet property="phoneInputText" destination="X8J-j8-YEW" id="1Gr-Fb-pYw"/>
+                        <outlet property="phoneLabel" destination="GOQ-Fq-zA9" id="IbB-Dz-2SU"/>
+                        <outlet property="titleInputText" destination="FqG-QF-gHW" id="uA1-ir-dTr"/>
+                        <outlet property="titleLabel" destination="dLU-AC-2xA" id="ok4-G1-euS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RF6-iS-VTa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -214,10 +214,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHP-q0-JfG">
+                                <rect key="frame" x="191.5" y="490" width="31" height="30"/>
+                                <state key="normal" title="編集"/>
+                                <connections>
+                                    <action selector="EditButton:" destination="x40-58-VEG" eventType="touchUpInside" id="ZZF-AC-1j6"/>
+                                    <segue destination="8MV-7c-R6X" kind="show" id="vKN-2j-IwB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rVR-Ko-FfT" firstAttribute="centerX" secondItem="DEg-hF-17w" secondAttribute="centerX" id="0KW-4M-hqT"/>
+                            <constraint firstItem="bHP-q0-JfG" firstAttribute="centerY" secondItem="DEg-hF-17w" secondAttribute="centerY" multiplier="1.2" id="3We-hf-Qbq"/>
                             <constraint firstItem="YRn-eg-5nB" firstAttribute="centerY" secondItem="DEg-hF-17w" secondAttribute="centerY" multiplier="1.1" id="46s-Zr-NA6"/>
                             <constraint firstItem="xkN-dj-58F" firstAttribute="centerY" secondItem="DEg-hF-17w" secondAttribute="centerY" multiplier="0.9" id="Ma1-Rs-S0S"/>
                             <constraint firstItem="YRn-eg-5nB" firstAttribute="centerX" secondItem="DEg-hF-17w" secondAttribute="centerX" id="N8x-yI-MPm"/>
@@ -225,6 +234,7 @@
                             <constraint firstItem="xkN-dj-58F" firstAttribute="centerX" secondItem="DEg-hF-17w" secondAttribute="centerX" id="RC1-0Q-1ak"/>
                             <constraint firstItem="rVR-Ko-FfT" firstAttribute="centerY" secondItem="DEg-hF-17w" secondAttribute="centerY" multiplier="0.8" id="qNT-yp-tX9"/>
                             <constraint firstItem="Kra-CO-2C2" firstAttribute="centerX" secondItem="DEg-hF-17w" secondAttribute="centerX" id="vYg-FM-ReP"/>
+                            <constraint firstItem="bHP-q0-JfG" firstAttribute="centerX" secondItem="DEg-hF-17w" secondAttribute="centerX" id="xaQ-Zl-RUP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OfV-zI-I0T"/>
                     </view>
@@ -262,6 +272,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="vKN-2j-IwB"/>
         <segue reference="IIE-wc-YZl"/>
     </inferredMetricsTieBreakers>
 </document>

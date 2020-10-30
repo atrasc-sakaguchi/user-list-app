@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2117F64A254163B5003969D6 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117F649254163B5003969D6 /* InputViewController.swift */; };
+		2117F64C2549423D003969D6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2117F64B2549423D003969D6 /* User.swift */; };
 		21EAEA78253C7DC900BDA2C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EAEA77253C7DC900BDA2C5 /* AppDelegate.swift */; };
 		21EAEA7A253C7DC900BDA2C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EAEA79253C7DC900BDA2C5 /* SceneDelegate.swift */; };
 		21EAEA7F253C7DC900BDA2C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21EAEA7D253C7DC900BDA2C5 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		2117F649254163B5003969D6 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		2117F64B2549423D003969D6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		21EAEA74253C7DC900BDA2C5 /* UserListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UserListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21EAEA77253C7DC900BDA2C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21EAEA79253C7DC900BDA2C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				21EAEA80253C7DCA00BDA2C5 /* Assets.xcassets */,
 				21EAEA82253C7DCA00BDA2C5 /* LaunchScreen.storyboard */,
 				21EAEA85253C7DCA00BDA2C5 /* Info.plist */,
+				2117F64B2549423D003969D6 /* User.swift */,
 			);
 			path = UserListApp;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			files = (
 				21EAEB12253DC42F00BDA2C5 /* SyosaiViewController.swift in Sources */,
 				2117F64A254163B5003969D6 /* InputViewController.swift in Sources */,
+				2117F64C2549423D003969D6 /* User.swift in Sources */,
 				21EAEA78253C7DC900BDA2C5 /* AppDelegate.swift in Sources */,
 				21EAEA7A253C7DC900BDA2C5 /* SceneDelegate.swift in Sources */,
 				21EAEA8E253C806800BDA2C5 /* TableViewController.swift in Sources */,
