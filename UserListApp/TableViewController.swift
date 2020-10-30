@@ -10,6 +10,7 @@ import UIKit
 
 class TableViewController: UITableViewController {
     
+    var viewNum: Int = 0
     
     //テーブルに表示するデータ一覧
     static var users:[User] = [
@@ -33,39 +34,54 @@ class TableViewController: UITableViewController {
      
     override func viewDidLoad() {
         super.viewDidLoad();
-
+        
         self.users = TableViewController.users;
         
-        //配列へ変換
-        var users2:[[String]] = [];
-        self.users.forEach { user in
-            users2.append(user.toArray());
-        }
-        //print(users2);
-        
-        //配列を保存
         let defaults = UserDefaults.standard
-        defaults.set(users2, forKey: "users")
-
-        //userDefaultsに保存された値の取得
-        let a = defaults.array(forKey: "users") as! [[String]];
-        print(a)
-
-        //usersを空にする
-        TableViewController.users = []
         
-        //取り出した情報を変換
-        a.forEach { userText in
-            let user = User(name: userText[0], department: userText[1], title: userText[2], phone: userText[3])
-            //tableViewへ格納
-            TableViewController.users.append(user)
+        //編集または入力後の処理
+        if viewNum == 1 || viewNum == 2{
+            //保存
+            //配列へ変換
+            var users2:[[String]] = [];
+            let saveUser = TableViewController.users
+            saveUser.forEach { saveUser in
+               users2.append(saveUser.toArray());
+            }
+            //print(users2);
+            
+            //配列を保存
+            defaults.set(users2, forKey: "users")
+            self.users = TableViewController.users
         }
+        else{
+            //取り出し
+             //userDefaultsに保存された値の取得
+             let a = defaults.array(forKey: "users") as! [[String]];
+             print(a)
+
+             //usersを空にする
+             TableViewController.users.removeAll()
+              
+             //取り出した情報を変換
+             a.forEach { userText in
+                 let user = User(name: userText[0], department: userText[1], title: userText[2], phone: userText[3])
+                 //tableViewへ格納
+                 TableViewController.users.append(user)
+             }
+ 
+             //self.usersに設定
+             self.users = TableViewController.users
+             self.tableView.reloadData();
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
         self.tableView.reloadData();
     }
+    
 
     // MARK: - Table view data source
     
@@ -110,7 +126,9 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //削除
         if editingStyle == .delete{
-            users.remove(at: indexPath.row)
+            users.remove(at: indexPath.row-1)
+            TableViewController.users.remove(at:  indexPath.row-1)
+            print (indexPath.row-1)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         else {
@@ -128,6 +146,7 @@ class TableViewController: UITableViewController {
         Syosai.user = users[indexPath.row - 1];
         //詳細表示画面へ選択行の情報を渡す
         Syosai.indexRow = indexPath.row - 1
+
 
     }
         

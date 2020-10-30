@@ -14,6 +14,7 @@ class SyosaiViewController: UIViewController {
  
     var user:User? = nil;
     var indexRow:Int = 0;
+    
 
     @IBOutlet weak var YakusyokuLabel: UILabel!
     @IBOutlet weak var ShimeiLabel: UILabel!
@@ -48,5 +49,7 @@ class SyosaiViewController: UIViewController {
         Input.input = user
         //入力画面へ編集業を渡す
         Input.indexRow = indexRow
+
+    
 }
 }

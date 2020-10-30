@@ -59,4 +59,13 @@ class InputViewController: UIViewController {
         }
        
     }
+    //画面遷移
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        //詳細表示画面のビューコントローラを取得
+        guard let table = segue.destination as? TableViewController else { return }
+        //タップされたボタンを取得
+        guard let button = sender as? UIButton else { return }
+        //編集ボタンのtagプロパティの値(1)を遷移先ビューコントローラのプロパティに代入
+        table.viewNum = button.tag
+    }
 }
