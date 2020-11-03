@@ -11,7 +11,6 @@ import UIKit
 class InputViewController: UIViewController {
     
     //表示する画面の情報を受け取るためのプロパティ
-    var viewNum: Int = 0  //ボタンtag
     var indexRow:Int = 0  //編集対象行
     var input:User? = nil;
     var addUsers:[String] = []
@@ -34,23 +33,31 @@ class InputViewController: UIViewController {
         let department = departmentInputText.text!       //部署
         let phone = phoneInputText.text!     //連絡先
 
-        //入力画面だった場合、１行追加
-        if viewNum == 0 {
+        //入力画面の場合
+        if input == nil{
             TableViewController.users += [User(name: name, department: department, title: title, phone: phone)]
         }
-        //編集画面だった場合、情報を上書き
-        else if viewNum == 1 {
-            TableViewController.users[indexRow].name = nameInputText.text!
-            TableViewController.users[indexRow].department = departmentInputText.text!
-            TableViewController.users[indexRow].title = titleInputText.text!
-            TableViewController.users[indexRow].phone = phoneInputText.text!
+        //編集画面の場合
+        else{
+            input?.name = nameInputText.text!
+            input?.department = departmentInputText.text!
+            input?.title = titleInputText.text!
+            input?.phone = phoneInputText.text!
+
+            TableViewController.users[indexRow] = input!
         }
+
+        //保存処理
+        TableViewController().SaveData()
+
+        //画面遷移
+        self.navigationController?.popToRootViewController(animated: true);
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if viewNum == 1 {
+        if input != nil {
             //編集画面の場合詳細情報をテキストに表示
             departmentInputText.text = input!.department
             nameInputText.text = input!.name
@@ -61,7 +68,7 @@ class InputViewController: UIViewController {
     }
     //画面遷移
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        //詳細表示画面のビューコントローラを取得
+        //情報表示画面のビューコントローラを取得
         guard let table = segue.destination as? TableViewController else { return }
         //タップされたボタンを取得
         guard let button = sender as? UIButton else { return }

@@ -9,7 +9,8 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    
+
+    let defaults = UserDefaults.standard
     var viewNum: Int = 0
     
     //テーブルに表示するデータ一覧
@@ -34,60 +35,67 @@ class TableViewController: UITableViewController {
      
     override func viewDidLoad() {
         super.viewDidLoad();
-        
-        self.users = TableViewController.users;
-        
-        let defaults = UserDefaults.standard
-        
-        //編集または入力後の処理
-        if viewNum == 1 || viewNum == 2{
-            //保存
-            //配列へ変換
-            var users2:[[String]] = [];
-            let saveUser = TableViewController.users
-            saveUser.forEach { saveUser in
-               users2.append(saveUser.toArray());
-            }
-            //print(users2);
-            
-            //配列を保存
-            defaults.set(users2, forKey: "users")
-            self.users = TableViewController.users
-        }
-        else{
-            //取り出し
-             //userDefaultsに保存された値の取得
-             let a = defaults.array(forKey: "users") as! [[String]];
-             print(a)
 
-             //usersを空にする
-             TableViewController.users.removeAll()
-              
-             //取り出した情報を変換
-             a.forEach { userText in
-                 let user = User(name: userText[0], department: userText[1], title: userText[2], phone: userText[3])
-                 //tableViewへ格納
-                 TableViewController.users.append(user)
-             }
- 
-             //self.usersに設定
-             self.users = TableViewController.users
-             self.tableView.reloadData();
-        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated);
-        self.tableView.reloadData();
+        //読み込み処理
+        ReadData()
     }
+    
+    //データ保存処理
+    func SaveData() {
+        //保存
+        //配列へ変換
+        var users2:[[String]] = [];
+        let saveUser = TableViewController.users
+        saveUser.forEach { saveUser in
+           users2.append(saveUser.toArray());
+        }
+        
+        //配列を保存
+        defaults.set(users2, forKey: "users")
+        self.users = TableViewController.users
+    }
+    
+    //データ読み込み処理
+    func ReadData(){
+        //userDefaultsに保存された値の取得
+        let a = defaults.array(forKey: "users") as! [[String]]
+        
+        //アプリを始めてインストールした時
+        if a.isEmpty{
+            //初期設定
+            self.users = TableViewController.users
+        }
+        
+        else{
+            //usersを空にする
+            TableViewController.users.removeAll()
+                         
+            //取り出した情報を変換
+            a.forEach { userText in
+            let user = User(name: userText[0], department: userText[1], title: userText[2], phone: userText[3])
+            //tableViewへ格納
+            TableViewController.users.append(user)
+            }
+            //self.usersに設定
+            self.users = TableViewController.users
+
+        }
+            self.tableView.reloadData()
+    }
+    
+
+
     
 
     // MARK: - Table view data source
     
     //セクションの数を返す
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+     
         return 1
     }
 
@@ -101,40 +109,43 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         switch indexPath.row{
-        case 0:
-        //情報追加用のセル設定
-        let secondCell = tableView.dequeueReusableCell(withIdentifier: "SecondCell", for: indexPath)
+            //情報追加用のセル設定
+            case 0:
+                let secondCell = tableView.dequeueReusableCell(withIdentifier: "SecondCell", for: indexPath)
+                //セルの内容を指定
+                secondCell.textLabel?.text = "新規登録"
+           
+                return secondCell
             
-        //セルの内容を指定
-        secondCell.textLabel?.text = "新規登録"
+            //情報表示用のセル設定
+            default:
+                let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+                //セルの内容を指定
+                cell.textLabel?.text = users[indexPath.row-1].name  //氏名
+                cell.detailTextLabel?.text = users[indexPath.row-1].department  //部署
         
-        return secondCell
-            
-        default:
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-        
-        //セルの内容を指定
-        cell.textLabel?.text = users[indexPath.row-1].name  //氏名
-        cell.detailTextLabel?.text = users[indexPath.row-1].department  //部署
-        
-        return cell
+                return cell
         }
         
     }
     
     //セル削除
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        //削除
-        if editingStyle == .delete{
+        //新規登録セルは削除しない
+        if indexPath.row != 0{
+            //削除
+            if editingStyle == .delete{
+                               
             users.remove(at: indexPath.row-1)
             TableViewController.users.remove(at:  indexPath.row-1)
-            print (indexPath.row-1)
             tableView.deleteRows(at: [indexPath], with: .fade)
+                       
+            //保存処理
+            SaveData()
         }
-        else {
         }
     }
-
+    
     //画面遷移
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //詳細表示画面のビューコントローラー取得
@@ -147,9 +158,7 @@ class TableViewController: UITableViewController {
         //詳細表示画面へ選択行の情報を渡す
         Syosai.indexRow = indexPath.row - 1
 
-
     }
-        
-        
+            
 }
     
