@@ -32,26 +32,42 @@ class InputViewController: UIViewController {
         let name = nameInputText.text!      //氏名
         let department = departmentInputText.text!       //部署
         let phone = phoneInputText.text!     //連絡先
-
-        //入力画面の場合
-        if input == nil{
-            TableViewController.users += [User(name: name, department: department, title: title, phone: phone)]
+        
+        //項目が一つでも未入力の場合はエラーメッセージ表示
+        if title.isEmpty || name.isEmpty || department.isEmpty || phone.isEmpty {
+            //エラーメッセージ
+            let alertController = UIAlertController(title: "入力エラー", message: "入力されていない項目があります。", preferredStyle: .alert)
+            //OKボタン
+            let okAction = UIAlertAction(title: "OK", style: .default){
+                (action) in
+            }
+            //エラーメッセージにOKボタン追加
+            alertController.addAction(okAction)
+            //エラーメッセージダイアログを表示
+            present(alertController,animated: true,completion: nil)
         }
-        //編集画面の場合
+        //全項目入力されていた場合のみ保存処理実行
         else{
-            input?.name = nameInputText.text!
-            input?.department = departmentInputText.text!
-            input?.title = titleInputText.text!
-            input?.phone = phoneInputText.text!
+            //入力画面の場合
+            if input == nil{
+                TableViewController.users += [User(name: name, department: department, title: title, phone: phone)]
+            }
+            //編集画面の場合
+            else{
+                input?.name = nameInputText.text!
+                input?.department = departmentInputText.text!
+                input?.title = titleInputText.text!
+                input?.phone = phoneInputText.text!
 
-            TableViewController.users[indexRow] = input!
+                TableViewController.users[indexRow] = input!
+            }
+
+            //保存処理
+            TableViewController.SaveData();
+            
+            //画面遷移
+            self.navigationController?.popToRootViewController(animated: true);
         }
-
-        //保存処理
-        TableViewController().SaveData()
-
-        //画面遷移
-        self.navigationController?.popToRootViewController(animated: true);
     }
     
     override func viewDidLoad() {
@@ -66,13 +82,5 @@ class InputViewController: UIViewController {
         }
        
     }
-    //画面遷移
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        //情報表示画面のビューコントローラを取得
-        guard let table = segue.destination as? TableViewController else { return }
-        //タップされたボタンを取得
-        guard let button = sender as? UIButton else { return }
-        //編集ボタンのtagプロパティの値(1)を遷移先ビューコントローラのプロパティに代入
-        table.viewNum = button.tag
-    }
+
 }

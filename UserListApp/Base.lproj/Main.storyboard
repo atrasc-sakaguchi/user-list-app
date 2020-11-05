@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="myCell" textLabel="E8J-yj-M0w" detailTextLabel="GMV-AS-82D" style="IBUITableViewCellStyleValue1" id="AHi-rm-xPU">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="myCell" textLabel="E8J-yj-M0w" detailTextLabel="SJy-ZN-vps" style="IBUITableViewCellStyleValue1" id="AHi-rm-xPU">
                                 <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AHi-rm-xPU" id="6Kk-qX-6pF">
@@ -30,7 +30,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GMV-AS-82D">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SJy-ZN-vps">
                                             <rect key="frame" x="331" y="33" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -71,8 +71,23 @@
                     </tableView>
                     <navigationItem key="navigationItem" leftItemsSupplementBackButton="YES" id="cqy-q6-xbN" customClass="SyosaiViewContoroller">
                         <barButtonItem key="backBarButtonItem" title="一覧へ" id="c3v-zf-LMC"/>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Y0t-BP-Oou"/>
+                        <barButtonItem key="leftBarButtonItem" title="編集" id="br8-m5-DEv">
+                            <connections>
+                                <action selector="editButton:" destination="H5d-Ul-FXf" id="Oau-y9-bTP"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" id="Y0t-BP-Oou"/>
+                            <barButtonItem systemItem="add" id="KFj-Ky-Wih">
+                                <connections>
+                                    <segue destination="8MV-7c-R6X" kind="show" id="5DM-74-Nrd"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="KFj-Ky-Wih" id="toa-Vi-DD1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKi-QH-Zyj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -179,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RF6-iS-VTa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3212" y="820"/>
+            <point key="canvasLocation" x="3119" y="949"/>
         </scene>
         <!--Syosai View Controller-->
         <scene sceneID="hgY-5E-6aV">
@@ -249,7 +264,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P6J-6h-c33" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2309" y="820"/>
+            <point key="canvasLocation" x="2319" y="949"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lvW-ts-Oug">
@@ -271,6 +286,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="h2m-Bw-Ktb"/>
+        <segue reference="5DM-74-Nrd"/>
     </inferredMetricsTieBreakers>
 </document>
