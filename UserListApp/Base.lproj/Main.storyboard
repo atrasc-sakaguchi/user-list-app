@@ -43,15 +43,15 @@
                                     <segue destination="x40-58-VEG" kind="show" id="qmK-7C-ZIt"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SecondCell" textLabel="dYQ-fG-31c" style="IBUITableViewCellStyleDefault" id="BZj-FG-khm">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SecondCell" textLabel="dYQ-fG-31c" style="IBUITableViewCellStyleDefault" id="BZj-FG-khm">
                                 <rect key="frame" x="0.0" y="113" width="414" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BZj-FG-khm" id="hYp-PB-IPS">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="85"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dYQ-fG-31c">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="85"/>
+                                            <rect key="frame" x="20" y="0.0" width="355" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -76,17 +76,15 @@
                                 <action selector="editButton:" destination="H5d-Ul-FXf" id="Oau-y9-bTP"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem style="plain" id="Y0t-BP-Oou"/>
-                            <barButtonItem systemItem="add" id="KFj-Ky-Wih">
-                                <connections>
-                                    <segue destination="8MV-7c-R6X" kind="show" id="5DM-74-Nrd"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KFj-Ky-Wih">
+                            <connections>
+                                <segue destination="8MV-7c-R6X" kind="show" id="5DM-74-Nrd"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="KFj-Ky-Wih" id="toa-Vi-DD1"/>
+                        <outlet property="editButton" destination="br8-m5-DEv" id="Y4o-vj-P82"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKi-QH-Zyj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

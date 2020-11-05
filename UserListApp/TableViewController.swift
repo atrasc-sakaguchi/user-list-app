@@ -32,9 +32,9 @@ class TableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad();
-
     }
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,10 +100,6 @@ class TableViewController: UITableViewController {
                   TableViewController.SaveData()
     }
     
-    // セルの並び替えを有効にする
-       func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-       }
-    
     // MARK: - Table view data source
     
     //セクションの数を返す
@@ -136,8 +132,7 @@ class TableViewController: UITableViewController {
             //情報表示用のセル設定
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-                let path = indexPath.row
-                print(path)
+        
                 //セルの内容を指定
                 cell.textLabel?.text = users[indexPath.row].name  //氏名
                 cell.detailTextLabel?.text = users[indexPath.row].department  //部署
@@ -158,9 +153,18 @@ class TableViewController: UITableViewController {
         }
     }
     
-    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
+    // セルの並び替えを有効にする
+//    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: IndexPath, toIndexPath destinationIndexPath: IndexPath) {
+//         }
+//    
+//    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+//         return true
+//    }
+//    
+//    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+    
 
     //セル削除
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
