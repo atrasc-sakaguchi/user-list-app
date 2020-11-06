@@ -41,6 +41,7 @@ class InputViewController: UIViewController {
             let okAction = UIAlertAction(title: "OK", style: .default){
                 (action) in
             }
+            
             //エラーメッセージにOKボタン追加
             alertController.addAction(okAction)
             //エラーメッセージダイアログを表示

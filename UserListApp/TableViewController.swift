@@ -104,20 +104,16 @@ class TableViewController: UITableViewController {
     
     //セクションの数を返す
     override func numberOfSections(in tableView: UITableView) -> Int {
-     
         return 1
     }
 
     //セクションごとの行数を返す
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    
         return users.count+1
     }
     
     //セルを作成して返す
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        
         //tableviewのセル設定
         switch indexPath.row{
             
@@ -153,19 +149,25 @@ class TableViewController: UITableViewController {
         }
     }
     
-    // セルの並び替えを有効にする
-//    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: IndexPath, toIndexPath destinationIndexPath: IndexPath) {
-//         }
-//    
-//    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-//         return true
-//    }
-//    
-//    func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: IndexPath) -> Bool {
-//        return true
-//    }
+    // セルの並び替えを有効にする(canMoveRowAt)
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
+    //セルの並び替えを有効にする(moveRowAt)
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
 
+        //元の位置のデータを配列から削除
+        TableViewController.users.remove(at: sourceIndexPath.row)
+
+        //移動先の位置にデータを配列に挿入
+        TableViewController.users.insert(users[sourceIndexPath.row], at:destinationIndexPath.row)
+        self.users.insert(users[sourceIndexPath.row], at:destinationIndexPath.row)
+        
+        //保存処理
+        TableViewController.SaveData()
+    }
+    
     //セル削除
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //削除
@@ -183,7 +185,6 @@ class TableViewController: UITableViewController {
                 //保存処理
                 TableViewController.SaveData()
         }
-  
             //キャンセルボタン作成
             let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel, handler: nil)
             
@@ -193,7 +194,6 @@ class TableViewController: UITableViewController {
             
             //アクションシートを表示
             present(sheetController,animated: true,completion: nil)
-
         }
     }
     
