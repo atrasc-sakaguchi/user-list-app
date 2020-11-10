@@ -7,28 +7,12 @@
 //
 
 import UIKit
+import Alertift
 
 class TableViewController: UITableViewController {
 
     //テーブルに表示するデータ一覧
-    static var users:[User] = [
-        User(name: "山田　太郎", department: "システム開発部", title: "課長代理", phone: "090-9999-9999"),
-        User(name: "川田　吾郎", department: "営業部", title: "一般", phone: "080-8888-8888"),
-        User(name: "里田　舞", department: "人事部", title: "一般", phone: "070-7777-7777"),
-        User(name: "道上　歩", department: "人事部", title: "部長", phone: "070-0000-0000"),
-        User(name: "海川　泳三", department: "総務部", title: "係長", phone: "080-3333-3333"),
-        User(name: "林　九郎", department: "システム開発部", title: "一般", phone: "090-9900-8877"),
-        User(name: "土屋　草五郎", department: "システム開発部", title: "一般", phone: "090-4455-1133"),
-        User(name: "竹下　大作", department: "人事部", title: "一般", phone: "070-7777-7777"),
-        User(name: "木田　房枝", department: "運用部", title: "一般", phone: "070-2222-5533"),
-        User(name: "砂川　黄太郎", department: "運用部", title: "次長", phone: "090-1212-3434"),
-        User(name: "草加　平蔵", department: "総務部", title: "一般", phone: "080-1155-5511"),
-        User(name: "水上　泉太郎", department: "総務部", title: "一般", phone: "090-0099-7722"),
-        User(name: "畑山　耕史", department: "システム開発部", title: "本部長", phone: "090-2929-3535"),
-        User(name: "浪江　乗太郎", department: "システム開発部", title: "係長代理補佐", phone: "080-8787-5454"),
-    ];
-
-    var users:[User] = [];
+    static var users:[User] = [];
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -54,18 +38,30 @@ class TableViewController: UITableViewController {
         
         //配列を保存
         UserDefaults.standard.set(users2, forKey: "users")
-        self.users = TableViewController.users
     }
     
     //データ読み込み処理
     func ReadData(){
         //userDefaultsに保存された値の取得
         let a = UserDefaults.standard.array(forKey: "users") as! [[String]]
-        self.users = TableViewController.users
         //アプリを始めてインストールした時
         if a.isEmpty{
-            //初期設定
-            self.users = TableViewController.users
+            TableViewController.users = [
+                User(name: "山田　太郎", department: "システム開発部", title: "課長代理", phone: "090-9999-9999"),
+                User(name: "川田　吾郎", department: "営業部", title: "一般", phone: "080-8888-8888"),
+                User(name: "里田　舞", department: "人事部", title: "一般", phone: "070-7777-7777"),
+                User(name: "道上　歩", department: "人事部", title: "部長", phone: "070-0000-0000"),
+                User(name: "海川　泳三", department: "総務部", title: "係長", phone: "080-3333-3333"),
+                User(name: "林　九郎", department: "システム開発部", title: "一般", phone: "090-9900-8877"),
+                User(name: "土屋　草五郎", department: "システム開発部", title: "一般", phone: "090-4455-1133"),
+                User(name: "竹下　大作", department: "人事部", title: "一般", phone: "070-7777-7777"),
+                User(name: "木田　房枝", department: "運用部", title: "一般", phone: "070-2222-5533"),
+                User(name: "砂川　黄太郎", department: "運用部", title: "次長", phone: "090-1212-3434"),
+                User(name: "草加　平蔵", department: "総務部", title: "一般", phone: "080-1155-5511"),
+                User(name: "水上　泉太郎", department: "総務部", title: "一般", phone: "090-0099-7722"),
+                User(name: "畑山　耕史", department: "システム開発部", title: "本部長", phone: "090-2929-3535"),
+                User(name: "浪江　乗太郎", department: "システム開発部", title: "係長代理補佐", phone: "080-8787-5454"),
+            ];
         }
         
         else{
@@ -78,23 +74,20 @@ class TableViewController: UITableViewController {
             //tableViewへ格納
             TableViewController.users.append(user)
             }
-            //self.usersに設定
-            self.users = TableViewController.users
-
         }
         self.tableView.reloadData()
     }
 
     //Editボタンクリック
     @IBAction func editButton(_ sender: Any) {
-       //編集モード
-                  if isEditing {
+                //編集モード
+                if isEditing {
                       super.setEditing(false, animated: true)
                       tableView.setEditing(false, animated: true)
-                  } else {
+                } else {
                       super.setEditing(true, animated: true)
                       tableView.setEditing(true, animated: true)
-                  }
+                }
 
                   //保存処理
                   TableViewController.SaveData()
@@ -109,11 +102,12 @@ class TableViewController: UITableViewController {
 
     //セクションごとの行数を返す
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return users.count+1
+        return TableViewController.users.count+1
     }
     
     //セルを作成して返す
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
         //tableviewのセル設定
         switch indexPath.row{
             
@@ -129,9 +123,11 @@ class TableViewController: UITableViewController {
             default:
                 let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
         
+                let index = indexPath.row
+                print(index)
                 //セルの内容を指定
-                cell.textLabel?.text = users[indexPath.row].name  //氏名
-                cell.detailTextLabel?.text = users[indexPath.row].department  //部署
+                cell.textLabel?.text = TableViewController.users[indexPath.row].name  //氏名
+                cell.detailTextLabel?.text = TableViewController.users[indexPath.row].department  //部署
                         
                 return cell
         }
@@ -156,14 +152,10 @@ class TableViewController: UITableViewController {
     
     //セルの並び替えを有効にする(moveRowAt)
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-
         //元の位置のデータを配列から削除
         TableViewController.users.remove(at: sourceIndexPath.row)
-
         //移動先の位置にデータを配列に挿入
-        TableViewController.users.insert(users[sourceIndexPath.row], at:destinationIndexPath.row)
-        self.users.insert(users[sourceIndexPath.row], at:destinationIndexPath.row)
-        
+        TableViewController.users.insert(TableViewController.users[sourceIndexPath.row], at:destinationIndexPath.row)
         //保存処理
         TableViewController.SaveData()
     }
@@ -177,11 +169,11 @@ class TableViewController: UITableViewController {
             //削除ボタン作成
             let removeAction = UIAlertAction(title: "削除実行", style: .destructive){
                 (action) in
-            
+                
                 //削除処理
-                self.users.remove(at: indexPath.row)
                 TableViewController.users.remove(at:  indexPath.row)
-                self.tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
                 //保存処理
                 TableViewController.SaveData()
         }
@@ -210,7 +202,7 @@ class TableViewController: UITableViewController {
         guard let indexPath = tableView.indexPathForSelectedRow else {return}
  
         //詳細表示画面へ行情報を渡す
-        Syosai.user = users[indexPath.row];
+        Syosai.user = TableViewController.users[indexPath.row];
         //詳細表示画面へ選択行の情報を渡す
         Syosai.indexRow = indexPath.row
     }

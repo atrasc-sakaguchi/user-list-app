@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alertift
 
 class InputViewController: UIViewController {
     
@@ -27,59 +28,73 @@ class InputViewController: UIViewController {
     
     //保存ボタンクリック
     @IBAction func saveButton(_ sender: UIButton) {
-        //入力された値を取得
-        let title = titleInputText.text!    //役職
-        let name = nameInputText.text!      //氏名
-        let department = departmentInputText.text!       //部署
-        let phone = phoneInputText.text!     //連絡先
         
-        //項目が一つでも未入力の場合はエラーメッセージ表示
+        guard let title = titleInputText.text else { return }
+        guard let name = nameInputText.text else { return }
+        guard let department = departmentInputText.text else { return }
+        guard let phone = phoneInputText.text else { return }
+        
+        //項目が一つでも未入力の場合はエラーメッセージ表示（そのまま保存か、再入力を選択）
         if title.isEmpty || name.isEmpty || department.isEmpty || phone.isEmpty {
-            //エラーメッセージ
-            let alertController = UIAlertController(title: "入力エラー", message: "入力されていない項目があります。", preferredStyle: .alert)
-            //OKボタン
-            let okAction = UIAlertAction(title: "OK", style: .default){
-                (action) in
+          //アラートメッセージを表示
+            Alertift.alert(title: "入力エラー",
+            message: "入力されていない項目があります。")
+            //キャンセルボタン
+            .action(.default("キャンセル")) {
+               //アラートダイアログを閉じる
             }
-            
-            //エラーメッセージにOKボタン追加
-            alertController.addAction(okAction)
-            //エラーメッセージダイアログを表示
-            present(alertController,animated: true,completion: nil)
+            //そのまま保存ボタン
+            .action(.cancel("そのまま保存")){
+                //登録処理
+                self.saveInput()
+            }
+            .show()
         }
-        //全項目入力されていた場合のみ保存処理実行
+        //全ての項目が入力されていた場合、そのまま保存
         else{
-            //入力画面の場合
-            if input == nil{
-                TableViewController.users += [User(name: name, department: department, title: title, phone: phone)]
-            }
-            //編集画面の場合
-            else{
-                input?.name = nameInputText.text!
-                input?.department = departmentInputText.text!
-                input?.title = titleInputText.text!
-                input?.phone = phoneInputText.text!
-
-                TableViewController.users[indexRow] = input!
-            }
-
-            //保存処理
-            TableViewController.SaveData();
-            
-            //画面遷移
-            self.navigationController?.popToRootViewController(animated: true);
+            //登録処理
+            self.saveInput()
         }
+    }
+    
+    //登録処理
+    func saveInput() {
+        
+         guard let name = nameInputText.text else { return }
+         guard let department = departmentInputText.text else { return }
+         guard let title = titleInputText.text else { return }
+         guard let phone = phoneInputText.text else { return }
+        
+        //入力画面の場合
+        if input == nil{
+            TableViewController.users += [User(name: name, department: department, title: title, phone: phone)]
+        }
+        //編集画面の場合
+        else{
+            if let input = input{
+                input.name = name
+                input.department = department
+                input.title = title
+                input.phone = phone
+                
+                TableViewController.users[self.indexRow] = input
+            }
+        }
+        //保存処理
+        TableViewController.SaveData();
+        //画面遷移
+        self.navigationController?.popToRootViewController(animated: true);
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if input != nil {
-            //編集画面の場合詳細情報をテキストに表示
-            departmentInputText.text = input!.department
-            nameInputText.text = input!.name
-            titleInputText.text = input!.title
-            phoneInputText.text = input!.phone
+        //inputの内容がnilじゃなかった場合（編集画面に遷移した場合）
+        if let input = input{
+            //詳細情報をテキストに表示
+            departmentInputText.text = input.department
+            nameInputText.text = input.name
+            titleInputText.text = input.title
+            phoneInputText.text = input.phone
         }
        
     }

@@ -1,0 +1,16 @@
+PODS:
+  - Alertift (4.1.1)
+
+DEPENDENCIES:
+  - Alertift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alertift
+
+SPEC CHECKSUMS:
+  Alertift: 950483ca193717cc8bb508a7dbbe34f4af321daf
+
+PODFILE CHECKSUM: ed1b319262af9590d56263bfbebf570dce60d3c9
+
+COCOAPODS: 1.5.3

@@ -21,27 +21,26 @@ class SyosaiViewController: UIViewController {
     @IBOutlet weak var RenrakuLabel: UILabel!
     
     @IBAction func EditButton(_ sender: UIButton) {
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //ラベルにユーザーの詳細情報をセット
-        YakusyokuLabel.text = user!.title;
-        ShimeiLabel.text = user!.name;
-        BusyoLabel.text = user!.department;
-        RenrakuLabel.text = user!.phone;
+        if let user = user{
+            //ラベルにユーザーの詳細情報をセット
+            YakusyokuLabel.text = user.title;
+            ShimeiLabel.text = user.name;
+            BusyoLabel.text = user.department;
+            RenrakuLabel.text = user.phone;
+        }
     }
     
     //画面遷移
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //入力画面のビューコントローラを取得
         guard let Input = segue.destination as? InputViewController else { return }
-        
         //入力画面へユーザー情報を渡す
         Input.input = user
         //入力画面へ編集業を渡す
         Input.indexRow = indexRow
-
 }
 }
