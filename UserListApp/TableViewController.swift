@@ -152,12 +152,29 @@ class TableViewController: UITableViewController {
     
     //セルの並び替えを有効にする(moveRowAt)
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+
+        var moveData:User? = nil;
+        //移動されたデータを取得
+        moveData = TableViewController.users[sourceIndexPath.row]
         //元の位置のデータを配列から削除
         TableViewController.users.remove(at: sourceIndexPath.row)
-        //移動先の位置にデータを配列に挿入
-        TableViewController.users.insert(TableViewController.users[sourceIndexPath.row], at:destinationIndexPath.row)
+        //移動先の位置に保持中のデータ（moveData）を配列に挿入
+        if let moveData = moveData{
+            TableViewController.users.insert(moveData, at: destinationIndexPath.row)
+        }
         //保存処理
         TableViewController.SaveData()
+    }
+    
+    //セルの並び替え範囲を指定
+    override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        //新規登録セルで並び替えをしようとした場合
+        if proposedDestinationIndexPath.row == TableViewController.users.count {
+            //移動元のセル位置に戻る
+            let indexPath = IndexPath(row: sourceIndexPath.row, section: 0)
+             return indexPath as IndexPath
+        }
+        return proposedDestinationIndexPath
     }
     
     //セル削除

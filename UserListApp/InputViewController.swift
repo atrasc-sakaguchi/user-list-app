@@ -34,8 +34,8 @@ class InputViewController: UIViewController {
         guard let department = departmentInputText.text else { return }
         guard let phone = phoneInputText.text else { return }
         
-        //項目が一つでも未入力の場合はエラーメッセージ表示（そのまま保存か、再入力を選択）
-        if title.isEmpty || name.isEmpty || department.isEmpty || phone.isEmpty {
+        //項目が一つでも未入力の場合(スペース入力も含む)はエラーメッセージ表示（そのまま保存か、再入力を選択）
+        if title.isEmpty || name.isEmpty || department.isEmpty || phone.isEmpty || title != " " || name != " " || department != " " || phone != " "{
           //アラートメッセージを表示
             Alertift.alert(title: "入力エラー",
             message: "入力されていない項目があります。")
