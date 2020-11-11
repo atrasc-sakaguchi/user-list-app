@@ -10,8 +10,6 @@ import UIKit
 
 class SyosaiViewController: UIViewController {
     
-    @IBOutlet weak var BackButton: UINavigationItem!
- 
     var user:User? = nil;
     var indexRow:Int = 0;
     
@@ -19,9 +17,6 @@ class SyosaiViewController: UIViewController {
     @IBOutlet weak var ShimeiLabel: UILabel!
     @IBOutlet weak var BusyoLabel: UILabel!
     @IBOutlet weak var RenrakuLabel: UILabel!
-    
-    @IBAction func EditButton(_ sender: UIButton) {
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +35,7 @@ class SyosaiViewController: UIViewController {
         guard let Input = segue.destination as? InputViewController else { return }
         //入力画面へユーザー情報を渡す
         Input.input = user
-        //入力画面へ編集業を渡す
+        //入力画面へ編集行を渡す
         Input.indexRow = indexRow
-}
+    }
 }

@@ -11,10 +11,8 @@ import Alertift
 
 class InputViewController: UIViewController {
     
-    //表示する画面の情報を受け取るためのプロパティ
-    var indexRow:Int = 0  //編集対象行
+    var indexRow:Int = 0
     var input:User? = nil;
-    var addUsers:[String] = []
     
     @IBOutlet weak var titleInputText: UITextField!
     @IBOutlet weak var nameInputText: UITextField!
@@ -28,26 +26,25 @@ class InputViewController: UIViewController {
     
     //保存ボタンクリック
     @IBAction func saveButton(_ sender: UIButton) {
-        
+        //テキスト入力値をアンラップ
         guard let title = titleInputText.text else { return }
         guard let name = nameInputText.text else { return }
         guard let department = departmentInputText.text else { return }
         guard let phone = phoneInputText.text else { return }
-        
+
         //項目が一つでも未入力の場合(スペース入力も含む)はエラーメッセージ表示（そのまま保存か、再入力を選択）
         if title.isEmpty || name.isEmpty || department.isEmpty || phone.isEmpty || title != " " || name != " " || department != " " || phone != " "{
-          //アラートメッセージを表示
-            Alertift.alert(title: "入力エラー",
-            message: "入力されていない項目があります。")
-            //キャンセルボタン
-            .action(.default("キャンセル")) {
-               //アラートダイアログを閉じる
-            }
-            //そのまま保存ボタン
-            .action(.cancel("そのまま保存")){
-                //登録処理
-                self.saveInput()
-            }
+                //アラートメッセージを表示
+                Alertift.alert(title: "入力エラー", message: "入力されていない項目があります。")
+                    //キャンセルボタン
+                    .action(.default("キャンセル")) {
+                    }
+                    //そのまま保存ボタン
+                    .action(.cancel("そのまま保存")){
+                        //登録処理
+                        self.saveInput()
+                    }
+            //アラートダイアログ表示
             .show()
         }
         //全ての項目が入力されていた場合、そのまま保存
@@ -57,34 +54,6 @@ class InputViewController: UIViewController {
         }
     }
     
-    //登録処理
-    func saveInput() {
-        
-         guard let name = nameInputText.text else { return }
-         guard let department = departmentInputText.text else { return }
-         guard let title = titleInputText.text else { return }
-         guard let phone = phoneInputText.text else { return }
-        
-        //入力画面の場合
-        if input == nil{
-            TableViewController.users += [User(name: name, department: department, title: title, phone: phone)]
-        }
-        //編集画面の場合
-        else{
-            if let input = input{
-                input.name = name
-                input.department = department
-                input.title = title
-                input.phone = phone
-                
-                TableViewController.users[self.indexRow] = input
-            }
-        }
-        //保存処理
-        TableViewController.SaveData();
-        //画面遷移
-        self.navigationController?.popToRootViewController(animated: true);
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +65,35 @@ class InputViewController: UIViewController {
             titleInputText.text = input.title
             phoneInputText.text = input.phone
         }
-       
     }
-
+    
+    
+    //登録処理
+    func saveInput() {
+        //テキスト入力値をアンラップ
+         guard let name = nameInputText.text else { return }
+         guard let department = departmentInputText.text else { return }
+         guard let title = titleInputText.text else { return }
+         guard let phone = phoneInputText.text else { return }
+        
+        //入力画面の場合
+        if input == nil{
+            //１行追加
+            TableViewController.users += [User(name: name, department: department, title: title, phone: phone)]
+        }
+        //編集画面の場合
+        else if let input = input{
+            //対象行を編集
+            input.name = name
+            input.department = department
+            input.title = title
+            input.phone = phone
+            //編集行を挿入
+            TableViewController.users[self.indexRow] = input
+        }
+        //保存処理
+        TableViewController.SaveData();
+        //画面遷移
+        self.navigationController?.popToRootViewController(animated: true);
+    }
 }
